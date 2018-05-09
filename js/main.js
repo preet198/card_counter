@@ -1,8 +1,10 @@
 
-let $username = $('.get-username');
-let $button = $('.button')
+$name = $('.name');
 
-$button.on('click', function () {
-  console.log($username.val());
-  alert($username.val());
-});
+let name = prompt("Please enter your name");
+
+    if (name) {
+      $('.name').html(name);
+    } else {
+      prompt("Please enter your name");
+    };
