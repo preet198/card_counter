@@ -7,5 +7,42 @@ body {
   width: 450px;
   grid-column-start: 2;
   justify-items: center;
+  grid-column-gap: 10px;
+}
+
+.button {
+  width: 450px;
+  grid-column-start: 2;
+  justify-items: center;
   grid-column-gap: 50px;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.wraper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  grid-row-gap: 2em;
+  justify-items: center;
+  grid-template-areas:
+    ". H T"
+    ". C ."
+
+}
+ .header{
+   grid-area: H;
+   /* justify-content: space-between; */
+ }
+
+ .time {
+   grid-area: T;
+ }
+
+.card {
+  grid-area: C;
+  height: 400px;
+  width: 250px;
+  border: 2px solid rgb(131, 131, 131)
+
 }
