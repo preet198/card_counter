@@ -19,6 +19,8 @@ body {
   text-decoration: none;
 }
 
+
+
 .wraper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -26,10 +28,15 @@ body {
   grid-row-gap: 2em;
   justify-items: center;
   grid-template-areas:
-    ". H T"
+    "X H T"
     ". C ."
 
 }
+
+.count{
+  grid-area: X;
+}
+
  .header{
    grid-area: H;
    /* justify-content: space-between; */
@@ -40,9 +47,29 @@ body {
  }
 
 .card {
+  display: flex;
   grid-area: C;
   height: 400px;
   width: 250px;
-  border: 2px solid rgb(131, 131, 131)
+  border: 2px solid rgb(131, 131, 131);
+  justify-content: space-between;
+  font-size: 3em;
+  flex-direction: column;
+  padding: 5px;
+}
 
+.top{
+  display: flex;
+  font-size: .5em;
+  justify-content: flex-start;
+}
+.middle{
+  display: flex;
+  justify-content: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: flex-end;
+  font-size: .5em;
 }

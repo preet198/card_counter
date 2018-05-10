@@ -4,22 +4,29 @@ let name = prompt("Please enter your name");
 let timer = $('.timer');
 let showCard = $('.show-card');
 let card = $('.card');
+let cardValue = $('.show-value');
+let cardSuit = $('.show-suit');
+let countTracker = $('.count-tracker');
 let count = 5;
+let start = 0;
 
 
-
+// get name
 if (name) {
   $('.name').html(name);
 } else {
   prompt("Please enter your name");
 }
 
-
+//var for building deck
 let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 let suits = ['♠️', '♣️', '♥️', '♦️'];
 let deck = [];
-let newDeck = [];
+let hiLoDeck = [];
+let deck2 = [];
+let hiOptDeck = [];
 
+//build deck for hilo
 function getDeck() {
 
   for (let cardValue of values) {
@@ -34,7 +41,9 @@ function getDeck() {
   return deck;
 }
 
-function addRank() {
+
+//adding rank for Hi-lo
+function addRankHiLo() {
   for (let i = 0; i < deck.length; i++) {
     if (deck[i].value >= 2 && deck[i].value <= 6) {
       deck[i].rank = 1;
@@ -45,53 +54,102 @@ function addRank() {
       deck[i].rank = -1;
     }
   }
-  return deck;
+  return hiLoDeck;
 }
 
 
+// build deck for hiopt 1
+function getDeck2() {
 
+  for (let cardValue of values) {
+    for (let cardSuit of suits) {
+
+      deck2.push({
+        suit: cardSuit,
+        value: cardValue
+      });
+    }
+  }
+  return deck2;
+}
+
+//add rank to hioppt 1
+function addRankHiOpt1() {
+  for (let i = 0; i < deck2.length; i++) {
+    if (deck2[i].value === 2) {
+      deck2[i].rank = 0;
+    } else if (deck2[i].value <= 6) {
+      deck2[i].rank = 1;
+    } else if (deck2[i].value <= 9) {
+      deck2[i].rank = 0;
+    } else if (deck2[i].value === 10 || deck2[i].value === 'J' || deck2[i].value === 'Q' || deck2[i].value === 'K') {
+      deck2[i].rank = -1;
+    } else if (deck2[i].value === 'A') {
+      deck2[i].rank = 0;
+    }
+  }
+  return hiOptDeck;
+}
+
+//running buid deck
 function buildDeck() {
   getDeck();
-  addRank();
+  getDeck2();
+  addRankHiLo();
+  addRankHiOpt1();
 }
-//build deck with value and rank
-buildDeck();
-
-
 
 
 //shuffle deck
-function shuffleDeck() {
-  for (i = deck.length; i > 0; i--) {
-    let getRandCard = Math.floor(Math.random() * 52);
-    // let getRandCard = Math.floor(getNum);
-    newDeck.push(deck[getRandCard]);
-  }
-}
-shuffleDeck();
-// console.table(newDeck)
-// console.table(newDeck).pop;
+// function shuffleDeck() {
+//   for (i = deck.length; i > 0; i--) {
+//     let getRandCard = Math.floor(Math.random() * 52);
+//     // let getRandCard = Math.floor(getNum);
+//     hiLoDeck.push(deck[getRandCard]);
+//   }
+// }
+
+//shuffledeck for hiopt 1
+// function shuffleDeck2() {
+//   for (i = deck2.length; i > 0; i--) {
+//     let getRandCard = Math.floor(Math.random() * 52);
+//     // let getRandCard = Math.floor(getNum);
+//     hiOptDeck.push(deck2[getRandCard]);
+//   }
+// }
+
+//build deck with value and rank
+buildDeck();
+//shuffle deck
+// shuffleDeck();
+// shuffleDeck2();
+
 
 // show card on page
-card.on("click", function(e){
-  let x = newDeck.pop();
-  card.append(x.value, x.suit);
+card.on("click", function(e) {
+  let getRandCard = Math.floor(Math.random() * 52);
+  let x = deck[getRandCard];
+  cardValue.html(x.value);
+  cardSuit.html(x.suit);
+  start += x.rank;
+  countTracker.html(start);
 });
 
 
 
 
-//set timer for player.
-// let oneSec = setInterval(time, 1000);
-//
-// function time() {
-//   timer.html(count);
-//   count--;
-//   if (count === -1){
-//     alert("Time is up!!");
-//     clearInterval(oneSec);
-//   }
-// }
+// set timer for player.
+let oneSec = setInterval(time, 1000);
 
+function time() {
+  timer.html(count);
+  count--;
+  if (count === -1){
+    alert("Time is up!!");
+    clearInterval(oneSec);
+  }
+}
 
-// time();
+time();
+
+console.table(deck);
