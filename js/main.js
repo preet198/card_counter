@@ -149,12 +149,13 @@ function time() {
 
 
 $('#start').click(function() {
+  $(this).off('click');
   oneSec = setInterval(time, 1000);
+
 });
+
 
 
 $('#button').click(function() {
   location.reload();
 });
-
-console.table(deck);
