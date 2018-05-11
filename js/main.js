@@ -1,22 +1,14 @@
-$name = $('.name');
-
-let name = prompt("Please enter your name");
 let timer = $('.timer');
 let showCard = $('.show-card');
 let card = $('.card');
 let cardValue = $('.show-value');
 let cardSuit = $('.show-suit');
 let countTracker = $('.count-tracker');
-let count = 5;
+let count = 30;
 let start = 0;
 
 
-// get name
-if (name) {
-  $('.name').html(name);
-} else {
-  prompt("Please enter your name");
-}
+
 
 //var for building deck
 let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
@@ -133,23 +125,36 @@ card.on("click", function(e) {
   cardSuit.html(x.suit);
   start += x.rank;
   countTracker.html(start);
+
 });
 
 
 
 
 // set timer for player.
-let oneSec = setInterval(time, 1000);
+let oneSec;
 
 function time() {
   timer.html(count);
   count--;
-  if (count === -1){
+  if (count === -1) {
     alert("Time is up!!");
+
     clearInterval(oneSec);
+    count = 30;
+    card.off("click");
   }
 }
 
-time();
+
+
+$('#start').click(function() {
+  oneSec = setInterval(time, 1000);
+});
+
+
+$('#button').click(function() {
+  location.reload();
+});
 
 console.table(deck);
