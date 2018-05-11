@@ -4,10 +4,15 @@ let card = $('.card');
 let cardValue = $('.show-value');
 let cardSuit = $('.show-suit');
 let countTracker = $('.count-tracker');
-let count = 30;
+let count;
 let start = 0;
 
-
+function getTime() {
+  count = prompt('Please enter a number from 0 to 60');
+  while ((count > 60) || (count < 0)) {
+    count = prompt('Please enter a number from 0 to 60');
+  }
+}
 
 
 //var for building deck
@@ -117,16 +122,7 @@ buildDeck();
 // shuffleDeck2();
 
 
-// show card on page
-card.on("click", function(e) {
-  let getRandCard = Math.floor(Math.random() * 52);
-  let x = deck[getRandCard];
-  cardValue.html(x.value);
-  cardSuit.html(x.suit);
-  start += x.rank;
-  countTracker.html(start);
 
-});
 
 
 
@@ -149,8 +145,19 @@ function time() {
 
 
 $('#start').click(function() {
+  getTime();
   $(this).off('click');
   oneSec = setInterval(time, 1000);
+  // show card on page
+  card.on("click", function(e) {
+    let getRandCard = Math.floor(Math.random() * 52);
+    let x = deck[getRandCard];
+    cardValue.html(x.value);
+    cardSuit.html(x.suit);
+    start += x.rank;
+    countTracker.html(start);
+
+  });
 });
 
 
