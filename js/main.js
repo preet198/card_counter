@@ -151,7 +151,6 @@ function time() {
 $('#start').click(function() {
   $(this).off('click');
   oneSec = setInterval(time, 1000);
-
 });
 
 
@@ -159,3 +158,5 @@ $('#start').click(function() {
 $('#button').click(function() {
   location.reload();
 });
+
+console.table(deck);
