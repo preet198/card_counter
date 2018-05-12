@@ -141,6 +141,14 @@ function time() {
   }
 }
 
+//which strategy does player want to learn
+playHiLo.click(function () {
+  playArray = deck.slice();
+});
+
+hiOpt1.click(() => {
+  playArray = deck2.slice();
+});
 
 //start button to start time interval/turn off start button
 $('#start').click(function() {
