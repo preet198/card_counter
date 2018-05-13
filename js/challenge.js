@@ -6,6 +6,8 @@ let cardSuit = $('.show-suit');
 let countTracker = $('.count-tracker');
 let count;
 let start = 0;
+let playHiLo = $('#hi-lo');
+let hiOpt1 = $('#hi-opt-1');
 
 function getTime() {
   count = prompt('Please enter a number from 0 to 60');
@@ -14,12 +16,14 @@ function getTime() {
   }
 }
 
+
 //var for building deck
 let values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 let suits = ['♠️', '♣️', '♥️', '♦️'];
 let deck = [];
 let hiLoDeck = [];
 let deck2 = [];
+let playArray = [];
 let hiOptDeck = [];
 
 //build deck for hilo
@@ -141,7 +145,6 @@ function time() {
   }
 }
 
-//which strategy does player want to learn
 playHiLo.click(function () {
   playArray = deck.slice();
 });
@@ -150,24 +153,27 @@ hiOpt1.click(() => {
   playArray = deck2.slice();
 });
 
-//start button to start time interval/turn off start button
+
 $('#start').click(function() {
   getTime();
   $(this).off('click');
   oneSec = setInterval(time, 1000);
-  // show card on page and keep card count
+  // show card on page
   card.on("click", function(e) {
     let getRandCard = Math.floor(Math.random() * 52);
-    let x = deck[getRandCard];
+    let x = playArray[getRandCard];
     cardValue.html(x.value);
     cardSuit.html(x.suit);
     start += x.rank;
     countTracker.html(start);
-
+    console.log(x.rank);
   });
 });
 
-//reset all fields
+
+
 $('#button').click(function() {
   location.reload();
 });
+
+console.table(deck);
