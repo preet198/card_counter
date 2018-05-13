@@ -1,50 +1,111 @@
 body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  background-color: rgb(25, 255, 228)
+}
+nav {
+  text-align: center;
+  padding: 1em;
+}
+
+a:link{
+text-decoration: none;
+padding: 1em;
+color: white;
+}
+a:hover{
+  color: white;
+}
+.wrap-intro {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-gap: 20px;
+  padding: 3em;
+  margin: 0 3em;
+  /* max-width: 70%; */
 }
 
 .intro {
-  width: 450px;
-  grid-column-start: 2;
-  justify-items: center;
-  grid-column-gap: 10px;
+  justify-content: center;
+  text-align: center;
+  padding: 14px auto;
+  font-size: 14px;
+  color: white;
+  margin: 3em;
 }
 
-.button {
-  width: 450px;
-  grid-column-start: 2;
-  justify-items: center;
-  grid-column-gap: 50px;
-  justify-content: space-between;
+.intro-para {
+  justify-content: center;
+  text-align: center;
+  padding: 14px auto;
+  font-size: 14px;
+}
+
+.intro-button {
+  justify-content: center;
+  text-align: center;
+  padding: 14px auto;
+}
+
+.intro h4 {
+  font-family: 'Crimson Text', serif;
+}
+
+.enter {
+  margin: 3em;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2c98ed;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+.enter a {
   text-decoration: none;
+  color: white;
 }
 
+.leave {
+  margin: 3em;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2c98ed;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
 
+.leave a {
+  text-decoration: none;
+  color: white;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+#Hi-lo-table {
+  border-collapse: collapse;
+}
 
 .wraper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 200px 200px;
-  grid-row-gap: 2em;
+  grid-template-rows: 200px 200px 200px;
+  grid-row-gap: 1em;
   justify-items: center;
-  grid-template-areas:
-    "X H T"
-    ". C ."
-
+  justify-content: space-around;
+  grid-template-areas: "X H T" ". C ." ". . Z"
 }
-
-.count{
-  grid-area: X;
-}
-
- .header{
-   grid-area: H;
-   /* justify-content: space-between; */
- }
-
- .time {
-   grid-area: T;
- }
 
 .card {
   display: flex;
@@ -56,20 +117,107 @@ body {
   font-size: 3em;
   flex-direction: column;
   padding: 5px;
+  border-radius: 10px;
+  border-style: outset;
+  background-color: rgb(235, 235, 235)
 }
 
-.top{
+.top {
   display: flex;
   font-size: .5em;
   justify-content: flex-start;
 }
-.middle{
+
+.middle {
   display: flex;
   justify-content: center;
 }
 
 .bottom {
   display: flex;
-  justify-content: flex-end;
   font-size: .5em;
+  justify-content: flex-end;
+}
+
+.count {
+  grid-area: X;
+}
+
+.header {
+  grid-area: H;
+  color: white;
+}
+
+.time {
+  grid-area: T;
+}
+
+#hi-opt-1 {
+  grid-area: Z;
+}
+
+#button {
+  border: none;
+  border-radius: 2px;
+  padding: 2em 1.2em;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+#start {
+  border: none;
+  border-radius: 2px;
+  padding: 2em 1.1em;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2c98ed;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+#hi-lo {
+  border: none;
+  border-radius: 2px;
+  padding: 2em 1.5em;
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2c98ed;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+#hi-opt-1 {
+  border: none;
+  border-radius: 2px;
+  padding: 2em .5em;
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2c98ed;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+p{
+  margin: 2em;
+}
+.white{
+/* background-color: rgba(72, 102, 207,.2) */
+background-color: rgba(214, 211, 210,.5);
+padding: 3em;
+border-radius: 20px
+}
+.instruc-h{
+  color: white;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
