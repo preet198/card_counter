@@ -5,10 +5,13 @@ let cardValue = $('.show-value');
 let cardSuit = $('.show-suit');
 let countTracker = $('.count-tracker');
 let count;
+let win = $('.win').val();
+let oneSec;
 let start = 0;
 let playHiLo = $('#hi-lo');
 let hiOpt1 = $('#hi-opt-1');
-let startMsg = $('.start-msg')
+let startMsg = $('.start-msg');
+
 
 
 function getTime() {
@@ -128,28 +131,22 @@ buildDeck();
 
 
 
-
-
-
-
 // set timer for player.
-let oneSec;
-
 function time() {
   timer.html(count);
   count--;
   if (count === -1) {
-    prompt("Enter the count");
     clearInterval(oneSec);
     card.off("click");
-
   }
 }
 
+
+//use hilo deck
 playHiLo.click(function () {
   playArray = deck.slice();
 });
-
+//use hiopt deck
 hiOpt1.click(() => {
   playArray = deck2.slice();
 });
@@ -169,7 +166,6 @@ $('#start').click(function() {
     cardSuit.html(x.suit);
     start += x.rank;
     countTracker.html(start);
-    console.log(x.rank);
   });
 });
 
@@ -178,5 +174,3 @@ $('#start').click(function() {
 $('#button').click(function() {
   location.reload();
 });
-
-console.table(deck);

@@ -8,6 +8,7 @@ let count;
 let start = 0;
 let playHiLo = $('#hi-lo');
 let hiOpt1 = $('#hi-opt-1');
+let startMsg = $('.start-msg');
 
 function getTime() {
   count = prompt('Please enter a number from 0 to 60');
@@ -157,6 +158,7 @@ hiOpt1.click(() => {
 $('#start').click(function() {
   getTime();
   $(this).off('click');
+  startMsg.hide();
   oneSec = setInterval(time, 1000);
   // show card on page
   card.on("click", function(e) {
