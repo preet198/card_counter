@@ -8,6 +8,8 @@ let count;
 let start = 0;
 let playHiLo = $('#hi-lo');
 let hiOpt1 = $('#hi-opt-1');
+let startMsg = $('.start-msg')
+
 
 function getTime() {
   count = prompt('Please enter a number from 0 to 60');
@@ -137,11 +139,10 @@ function time() {
   timer.html(count);
   count--;
   if (count === -1) {
-    alert("Time is up!!");
-
+    prompt("Enter the count");
     clearInterval(oneSec);
-    count = 30;
     card.off("click");
+
   }
 }
 
@@ -157,6 +158,8 @@ hiOpt1.click(() => {
 $('#start').click(function() {
   getTime();
   $(this).off('click');
+  countTracker.hide();
+  startMsg.hide();
   oneSec = setInterval(time, 1000);
   // show card on page
   card.on("click", function(e) {
