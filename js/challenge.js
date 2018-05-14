@@ -5,7 +5,7 @@ let cardValue = $('.show-value');
 let cardSuit = $('.show-suit');
 let countTracker = $('.count-tracker');
 let count;
-let win = $('.win').val();
+let win = $('.win');
 let oneSec;
 let start = 0;
 let playHiLo = $('#hi-lo');
@@ -141,6 +141,16 @@ function time() {
     countTracker.show();
   }
 }
+
+$('.win-submit').click(function () {
+  if (parseInt(win.val()) === start){
+    alert('Your are the master of this universe!!');
+    console.log(win.val());
+    console.log(start);
+  } else if (parseInt(win.val()) !== start){
+    alert(`You need more practice young one. Force is not with you. Count was ${start}`);
+  }
+});
 
 
 //use hilo deck

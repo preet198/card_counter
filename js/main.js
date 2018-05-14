@@ -146,6 +146,8 @@ function time() {
   }
 }
 
+
+
 playHiLo.click(function () {
   playArray = deck.slice();
 });
