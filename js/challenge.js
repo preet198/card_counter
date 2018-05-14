@@ -138,7 +138,7 @@ function time() {
   if (count === -1) {
     clearInterval(oneSec);
     card.off("click");
-    countTracker.show();
+    alert('Enter count below')
   }
 }
 
